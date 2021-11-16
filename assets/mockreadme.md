@@ -1,8 +1,6 @@
-# Title ![MIT](https://img.shields.io/static/v1?label=<${}>&message=<License>&color=<Green>)
+# Title ![MIT](https://img.shields.io/static/v1?label=<MIT>&message=<License>&color=<Green>)
 
-## Table of Contents (Optional)
-
-If your README is long, add a table of contents to make it easy for users to find what they need.
+## Table of Contents
 
 - [Description](#description)
 - [Installation](#installation)

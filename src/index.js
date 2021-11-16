@@ -1,3 +1,5 @@
+const fs = require("fs");
+
 // declare questions
 const questions = [];
 
@@ -84,13 +86,22 @@ const generateReadme = (answers) => {
     `;
 };
 
+// write to file
+const writeToFile = (filePath, data) => {
+  try {
+    fs.writeFileSync(filePath, data);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
 const init = (async) => {
   // prompt the questions using inquirer
   // generate Readme based on answers
   const readme = generateReadme();
 
-  console.log(readme);
   // write readme generated to a file
+  writeToFile("TEST_README.md", readme);
 };
 
 init();

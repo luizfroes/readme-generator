@@ -5,7 +5,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 
 // declare questions
-const questions = [
+const mainQuestions = [
   {
     type: "input",
     name: "title",
@@ -18,33 +18,21 @@ const questions = [
   },
   {
     type: "confirm",
-    name: "isInstallation",
+    name: "hasInstallation",
     message: "Does your Project has an installation script?",
-  },
-  {
-    type: "input",
-    name: "installation",
-    message: "What is the installation script of your project?",
+    default: false,
   },
   {
     type: "confirm",
-    name: "isUsage",
+    name: "hasUsage",
     message: "Does your Project has an usage script?",
-  },
-  {
-    type: "input",
-    name: "usage",
-    message: "How do I use the application??",
+    default: false,
   },
   {
     type: "confirm",
-    name: "isTest",
-    message: "Does your Project has an usage script?",
-  },
-  {
-    type: "input",
-    name: "test",
-    message: "How do I test the application?",
+    name: "hasTest",
+    message: "Does your Project has an test script?",
+    default: false,
   },
   {
     type: "input",
@@ -66,122 +54,94 @@ const questions = [
     name: "license",
     message: "Choose a license:",
     choices: [
-      "GNU AGPLv3",
-      "GNU GPLv3",
-      "GNU LGPLv3",
-      "Mozilla Public License 2.0",
-      "Apache License 2.0",
-      "MIT License",
-      "Boost Software License 1.0",
-      "The Unlicense",
+      {
+        name: "GNU AGPLv3",
+        value: "gnuA",
+      },
+      {
+        name: "GNU GPLv3",
+        value: "gnu",
+      },
+      {
+        name: "GNU LGPLv3",
+        value: "gnuL",
+      },
+      {
+        name: "Mozilla Public License 2.0",
+        value: "mozilla",
+      },
+      {
+        name: "Apache License 2.0",
+        value: "apache",
+      },
+      {
+        name: "MIT License",
+        value: "mit",
+      },
+      {
+        name: "Boost Software License 1.0",
+        value: "boost",
+      },
+      {
+        name: "The Unlicense",
+        value: "unlicense",
+      },
     ],
   },
 ];
 
-const generateTitle = (answers) => {
-  return `# Title ![MIT](https://img.shields.io/static/v1?label=<MIT>&message=<License>&color=<Green>)
-  `;
-};
+const instalQuestion = [
+  {
+    type: "input",
+    name: "installation",
+    message: "What is the installation script of your project?",
+  },
+];
 
-const generateTableOfContents = (answers) => {
-  return `## Table of Contents
-    
-  - [Description](#description)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Tests](#tests)
-  - [Contributing](#contributing)
-  - [License](#license)`;
-};
+const usageQuestion = [
+  {
+    type: "input",
+    name: "usage",
+    message: "How do I use the application??",
+  },
+];
 
-const generateDescription = (answers) => {
-  return `## Description
-    
-  DESCRIPTION`;
-};
+const testQuestion = [
+  {
+    type: "input",
+    name: "test",
+    message: "How do I test the application?",
+  },
+];
 
-const generateInstallation = (answers) => {
-  return `## Installation
-    
-  Run the following script to instal the packages required for the application:
-    
-  \`\`\`
-  ADD TEXT HERE
-  \`\`\``;
-};
+const init = async () => {
+  // prompt the mainQuestions using inquirer
+  const answers = await inquirer.prompt(mainQuestions);
 
-const generateUsage = (answers) => {
-  return `## Usage
-    
-  To use the application run the following script:
-    
-  \`\`\`
-  ADD TEXT HERE
-  \`\`\``;
-};
+  console.log(answers);
 
-const generateTests = (answers) => {
-  return `## Tests
-    
-  To use the application run the following script:
-    
-  \`\`\`
-  ADD TEXT HERE
-  \`\`\``;
-};
+  if (answers.hasInstallation) {
+    const instalAnswer = await inquirer.prompt(instalQuestion);
 
-const generateContributing = (answers) => {
-  return `## Contributing
-
-  ADD TEXT HERE
-    
-  If you would like more info about how to contribute in this application, please fell free to get in touch with me by:
-
-  Email: ADD TEXT HERE
-  GitHub: ADD TEXT HERE`;
-};
-
-const generateLicense = (answers) => {
-  return `## License
-    
-  ADD TEXT HERE`;
-};
-
-const generateReadme = (answers) => {
-  return `${generateTitle(answers)}
-
-  ${generateTableOfContents(answers)}
-    
-  ${generateDescription(answers)}
-    
-  ${generateInstallation(answers)}
-    
-  ${generateUsage(answers)}
-    
-  ${generateTests(answers)}
-    
-  ${generateContributing(answers)}
-    
-  ${generateLicense(answers)}
-    `;
-};
-
-// write to file
-const writeToFile = (filePath, data) => {
-  try {
-    fs.writeFileSync(filePath, data);
-  } catch (error) {
-    console.log(error.message);
+    console.log(instalAnswer);
   }
-};
 
-const init = (async) => {
-  // prompt the questions using inquirer
+  if (answers.hasUsage) {
+    const usageAnswer = await inquirer.prompt(usageQuestion);
+
+    console.log(usageAnswer);
+  }
+
+  if (answers.hasTest) {
+    const testAnswer = await inquirer.prompt(testQuestion);
+
+    console.log(testAnswer);
+  }
   // generate Readme based on answers
-  const readme = generateReadme();
+  //const readme = generateReadme();
 
   // write readme generated to a file
-  writeToFile("TEST_README.md", readme);
+  //writeToFile("TEST_README.md", readme);
 };
 
 init();

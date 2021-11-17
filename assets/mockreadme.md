@@ -39,7 +39,10 @@ ADD TEXT HERE
 
 ## Contributing
 
-ADD TEXT HERE
+If you would like more info about how to contribute in this application, please fell free to get in touch with me by:
+
+Email: ADD TEXT HERE
+GitHub: ADD TEXT HERE
 
 ## License
 

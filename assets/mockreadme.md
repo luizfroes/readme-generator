@@ -43,7 +43,3 @@ If you would like more info about how to contribute in this application, please 
 
 Email: ADD TEXT HERE
 GitHub: ADD TEXT HERE
-
-## License
-
-ADD TEXT HERE

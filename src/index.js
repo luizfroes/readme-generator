@@ -5,7 +5,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 
 // import util
-const util = require("./util");
+const { writeToFile } = require("./util");
 
 //import generate
 const { generateReadme } = require("./generate");
@@ -42,10 +42,8 @@ const init = async () => {
   // generate Readme based on answers
   const readme = generateReadme(answers, instalAnswer, usageAnswer, testAnswer);
 
-  console.log(readme);
-
   // write readme generated to a file
-  //writeToFile("SAMPLE_README.md", readme);
+  writeToFile("SAMPLE_README.md", readme);
 };
 
 init();

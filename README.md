@@ -7,7 +7,11 @@ You can view the GitHub pages deployed application [here](https://fudge88.github
 - [Description](#description)
 - [User Story](#user-story)
 - [Technologies Used](#technologies-used)
-- [Screenshots](#screenshots)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Animated Gifs](#animated-gifs)
+- [Video Walkthrough](#video-walkthrough)
+- [Questions](#questions)
 
 ## Description
 
@@ -63,7 +67,7 @@ To use the application follow the steps below:
 npm run start
 ```
 
-## Screenshots
+## Animated Gifs
 
 ![Screen-shot of webpage](./assets/images/wireframes/index-ss.png)
 
@@ -76,3 +80,11 @@ npm run start
 ## Video Walkthrough
 
 Click [here](./assets/images/wireframes/recipe-ss.png) to access the Video Walkthrough.
+
+## Questions
+
+If you have any question or suggestion, please fell free to get in touch with me by:
+
+Email: [luizfroes@gmail.com](mailto:luizfroes@gmail.com)
+
+GitHub: [luizfroes](https://github.com/luizfroes)

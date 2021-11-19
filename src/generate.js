@@ -1,5 +1,3 @@
-const fs = require("fs");
-
 const generateTitle = (answers) => {
   return `# ${answers.title} ![${answers.license}](https://img.shields.io/static/v1?label=<${answers.license}>&message=<License>&color=<Green>)\n
   `;
@@ -11,7 +9,7 @@ const generateTableOfContents = (answers) => {
   - [Description](#description)
   ${answers.hasInstallation ? "- [Installation](#installation)" : ""}
   ${answers.hasUsage ? "- [Usage](#usage)" : ""}
-  ${answers.hasTests ? "- [Tests](#tests)" : ""}
+  ${answers.hasTest ? "- [Tests](#tests)" : ""}
   - [Contributing](#contributing)
   - [License](#license)
   - [Questions](#question)`;
@@ -23,32 +21,32 @@ const generateDescription = (answers) => {
   ${answers.description}`;
 };
 
-const generateInstallation = (instalAnswer) => {
+const generateInstallation = (instalAnswers) => {
   return `## Installation
 
   Run the following script to instal the packages required for the application:\n     
   \`\`\`
-  ${instalAnswer.installation}
+  ${instalAnswers.join("\n")}
   \`\`\`\n`;
 };
 
-const generateUsage = (usageAnswer) => {
+const generateUsage = (usageAnswers) => {
   return `## Usage 
 
   To use the application run the following script:\n  
         
   \`\`\`
-  ${usageAnswer.usage}
+  ${usageAnswers.join("\n")}
   \`\`\`\n`;
 };
 
-const generateTests = (testAnswer) => {
+const generateTests = (testAnswers) => {
   return `## Tests
 
   To use the application run the following script:
 
   \`\`\`
-  ${testAnswer.test}
+  ${testAnswers.join("\n")}
   \`\`\`\n`;
 };
 
@@ -68,13 +66,13 @@ const generateQuestions = (answers) => {
   GitHub: ${answers.github}`;
 };
 
-const generateReadme = (answers, instalAnswer, usageAnswer, testAnswer) => {
+const generateReadme = (answers, instalAnswers, usageAnswers, testAnswers) => {
   return `${generateTitle(answers)}\n
   ${generateTableOfContents(answers)}\n
   ${generateDescription(answers)}\n 
-  ${answers.hasInstallation ? generateInstallation(instalAnswer) : ""}\n
-  ${answers.hasUsage ? generateUsage(usageAnswer) : ""}\n
-  ${answers.hasTest ? generateTests(testAnswer) : ""}\n
+  ${answers.hasInstallation ? generateInstallation(instalAnswers) : ""}\n
+  ${answers.hasUsage ? generateUsage(usageAnswers) : ""}\n
+  ${answers.hasTest ? generateTests(testAnswers) : ""}\n
   ${generateContributing(answers)}\n
   ${generateQuestions(answers)}\n
   `;

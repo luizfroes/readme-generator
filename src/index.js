@@ -1,9 +1,6 @@
 //import inquirer
 const inquirer = require("inquirer");
 
-//import fs
-const fs = require("fs");
-
 // import util
 const { writeToFile } = require("./util");
 
@@ -18,31 +15,41 @@ const {
   testQuestion,
 } = require("./questions");
 
+const {
+  loopInstallationQuestions,
+  loopUsageQuestions,
+  loopTestQuestions,
+} = require("./loop");
+
 const init = async () => {
   // prompt the mainQuestions using inquirer to get answers
   const answers = await inquirer.prompt(mainQuestions);
 
   // get other answers
-  let instalAnswer;
-  let usageAnswer;
-  let testAnswer;
+  let instalAnswers;
+  let usageAnswers;
+  let testAnswers;
 
   if (answers.hasInstallation) {
-    instalAnswer = await inquirer.prompt(instalQuestion);
+    instalAnswers = await loopInstallationQuestions(instalQuestion);
   }
 
   if (answers.hasUsage) {
-    usageAnswer = await inquirer.prompt(usageQuestion);
+    usageAnswers = await loopUsageQuestions(usageQuestion);
   }
 
   if (answers.hasTest) {
-    testAnswer = await inquirer.prompt(testQuestion);
+    testAnswers = await loopTestQuestions(testQuestion);
   }
+  //generate Readme based on answers
+  const readme = generateReadme(
+    answers,
+    instalAnswers,
+    usageAnswers,
+    testAnswers
+  );
 
-  // generate Readme based on answers
-  const readme = generateReadme(answers, instalAnswer, usageAnswer, testAnswer);
-
-  // write readme generated to a file
+  //write readme generated to a file
   writeToFile("SAMPLE_README.md", readme);
 };
 

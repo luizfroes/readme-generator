@@ -88,7 +88,7 @@ const instalQuestion = [
   {
     type: "input",
     name: "installation",
-    message: "What are all the installations steps of your project?",
+    message: "Please add a step to install your project?",
   },
 ];
 
@@ -96,7 +96,7 @@ const usageQuestion = [
   {
     type: "input",
     name: "usage",
-    message: "What are all the usage steps of your application?",
+    message: "Please add a step of how to use your application?",
   },
 ];
 
@@ -104,7 +104,7 @@ const testQuestion = [
   {
     type: "input",
     name: "test",
-    message: "What are all the steps to test your application?",
+    message: "Please add a step to test your application?",
   },
 ];
 

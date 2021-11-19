@@ -63,7 +63,7 @@ const generateQuestions = (answers) => {
         
   Email: [${answers.email}](mailto:${answers.email})
         
-  GitHub: ${answers.github}`;
+  GitHub: [${answers.github}](https://github.com/${answers.github})`;
 };
 
 const generateReadme = (answers, instalAnswers, usageAnswers, testAnswers) => {

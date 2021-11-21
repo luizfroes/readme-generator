@@ -1,7 +1,5 @@
 <h1>Readme Generator</h1>
 
-You can view the GitHub pages deployed application [here](https://fudge88.github.io/foodtopia/).
-
 <h2>Table of Contents</h2>
 
 - [Description](#description)
@@ -9,7 +7,6 @@ You can view the GitHub pages deployed application [here](https://fudge88.github
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Animated Gifs](#animated-gifs)
 - [Video Walkthrough](#video-walkthrough)
 - [Questions](#questions)
 
@@ -67,19 +64,9 @@ To use the application follow the steps below:
 npm run start
 ```
 
-## Animated Gifs
-
-![Screen-shot of webpage](./assets/images/wireframes/index-ss.png)
-
-![Screen-shot of webpage](./assets/images/wireframes/menu-ss.png)
-
-![Screen-shot of webpage](./assets/images/wireframes/favourites-ss.png)
-
-![Screen-shot of webpage](./assets/images/wireframes/recipe-ss.png)
-
 ## Video Walkthrough
 
-Click [here](./assets/images/wireframes/recipe-ss.png) to access the Video Walkthrough.
+Click [here](https://drive.google.com/file/d/15LaAN_dBrrKa6AAhzCkfbqMINoFp7Lha/view?usp=sharing) to access the Video Walkthrough.
 
 ## Questions
 
